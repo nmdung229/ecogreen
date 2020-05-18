@@ -1,0 +1,330 @@
+.banner{
+    height: 20em;  
+    overflow: hidden;  
+    position: relative; 
+    background: transparent; 
+}
+.banner::before{
+    position: absolute;
+    content:  "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000003d; 
+}
+.banner .content{
+    position: relative; 
+    top: 0;
+    left: 0;
+    padding: 8em 0 ;
+}
+.banner .content p{
+    font-size: 1.4em;  
+    color: #ffffff;  
+    font-weight: 600;  
+}
+.banner .content h2{
+    color: #ffffff;  
+    font-size: 2.5em;  
+    font-weight: 700; 
+}
+
+.product .img{
+    position: relative;
+}
+
+.product .price{
+    position: absolute;  
+    bottom: 0;  
+    left: 0;  
+    padding: .4em 1em;
+    font-weight: 600;
+    background: #ffffff8f;   
+    color: #47846a;
+}
+.product .new{
+    position: absolute;  
+    top: 0;  
+    left: 0;  
+    font-size: .9em;  
+    font-weight: 500; 
+    padding: .2em .5em;  
+    background: #ba98005c;  
+    color: #fff;  
+}
+.product p{
+    font-size: 1em ; 
+    height: 3em; 
+    text-transform: uppercase;  
+    margin: 1em 0 .5em 0 ;  
+    overflow:hidden; 
+}
+.box-product{
+    padding: 2em ;  
+    background:#fff; 
+    position: relative;
+}
+.box-product .title h2{
+    font-size: 1.2em;  
+    text-transform: uppercase;  
+    color: #66c099; 
+    font-weight: 500;  
+    margin: 18px 0 ; 
+}
+.box-product .title{
+    display: flex;  
+    justify-content: space-between;  
+}
+.box-product select{
+    margin: .8em 0 ;  
+    border: 1px solid #66c099; 
+    padding: .4em; 
+    color: #499172; 
+    font-size: .9em;  
+}
+.list-product{
+    display: flex; 
+    justify-content: space-between;  
+    flex-wrap: wrap;  
+    position: relative;  
+}
+.list-product .product{
+    width: 250px;  
+}
+.list-product .product .img{
+    width: 100%;  
+    height: 250px;  
+    overflow:hidden;  
+}
+.list-product .product img{
+    transition: .4s; 
+}
+.list-product .product img:hover{
+    transform: scale(1.1);
+}
+
+.category ul{
+    list-style: none;  
+}
+
+.category ul li{
+    padding: 1em; 
+    text-transform: uppercase;  
+    font-weight: 500; 
+    background: #79cba8; 
+    margin-bottom: .2em; 
+    color: #fff;  
+    transition: .4s; 
+    cursor: pointer;  
+}
+.category ul li span{
+    padding: .1em .3em; 
+    background: #fff;  
+    color: #494949;  
+    border-radius: 4px; 
+    margin-left: 1em; 
+    font-size: .8em;  
+}
+.category ul li.active, .category ul li:hover{
+    background: #f8fffc; 
+    color: #457c65;  
+}
+.category ul li.active span, .category ul li:hover span{
+     color: #457c65;  
+}
+.list-product .btn-direct{
+    position: absolute;  
+    width:calc(100% + 2em);  
+    display: flex;  
+    justify-content: space-between;    
+    top: 30%;  
+    left: -1em; 
+}
+.list-product .btn-direct button{
+    background: #fff;  
+    font-size: 1.5em; 
+    border: #fff; 
+    outline: none; 
+    opacity: .3; 
+    transition: .2s; 
+}
+.list-product .btn-direct button:hover{
+    opacity: 1;  
+}
+.pagination li{
+    width: 1.6em;  
+    text-align: center;  
+    border: 1px solid #ddd;   
+    margin-right: 4px;  
+    transition: .2s; 
+}
+.pagination li.active, .pagination li:hover{
+    color: #fff;  
+    background: #79cba8; 
+    border: 1px solid #79cba8;   
+}
+
+.box-sale{
+    position: relative;  
+    padding: 5em;  
+    text-align: center;  
+}
+.box-sale::before{
+    position: absolute;
+    content:  "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000006e; 
+}
+.box-sale .content{
+    max-width: 60%; 
+    margin: auto; 
+    position: relative;  
+}
+.box-sale p{
+    color: #ffffff; 
+    margin-bottom: .5em;
+}
+.box-sale .timer{
+    display: flex;  
+    justify-content: center;  
+    margin-bottom: 4em; 
+}
+.box-sale .timer > div{
+    padding: 1em 1em .5em 1em; 
+    text-align: center;  
+    background: #fff;  
+    border-radius: .5em;   
+    margin: 0 1em; 
+}
+.box-sale .timer > div p{
+    margin: 0; 
+    color: #b0b0b0;  
+}
+.box-sale .timer > div .number{
+    font-size: 2em;
+    color: #1ea96e; 
+    margin: 0; 
+}
+.box-sale h2{
+    font-size: 2em;
+    color: #fff; 
+    font-weight: 700; 
+    margin-bottom: 1em;   
+}
+.box-sale .text-sale{
+    margin-bottom: 2em;  
+}
+.box-sale button{
+    padding: .8em 1.5em; 
+    border: 2px solid #fff;  
+    background: transparent;  
+    color: #fff; 
+    text-transform: uppercase;  
+    font-size: .9em;
+    transition: .3s; 
+}
+.box-sale button:hover{
+    box-shadow: 0 0 4px #fff;  
+}
+
+
+.box-product-02{
+    position: relative;  
+    background: #f6f6f6; 
+    padding: 4em 2em; 
+}
+
+.box-product-02 .title{
+    text-align: center;  
+    margin-bottom: 2em; 
+}
+.box-product-02 .title p{
+    font-size: .9em;  
+    font-weight: 500;  
+    text-transform: uppercase;  
+    color: #d7d7d7; 
+    margin-bottom: 1em; 
+}
+.box-product-02 .title p:last-child{
+    text-transform: unset;  
+    color: #b2b2b2;  
+}
+
+.box-product-02 .title h2{
+    margin-bottom: 1em;  
+    font-size: 2.2em; 
+    font-weight: 600;  
+    color: #71b699;  
+}
+
+.box-product-02 .product{
+    padding: 3em;  
+    background: #fff;  
+    margin-bottom: 2em; 
+}
+.box-product-02 .product .img{
+    width: 100%;  
+    padding: 0 3em;  
+}
+.box-product-02 .product img{
+    width: 100%; 
+}
+.box-product-02 .product .content{
+    position: relative;  
+}
+.box-product-02 .product .content .number{
+    position: absolute;  
+    top: 0; 
+    left: 0;  
+    font-size: 8em;  
+    line-height: .8em; 
+    font-weight: 600;
+    color: #71b29729; 
+    font-family: 'Roboto', sans-serif;
+}
+.box-product-02 .product .content h2{
+    position: relative;  
+    font-size: 2em;  
+    margin-bottom: 1em;  
+    font-weight: 600;  
+}
+.box-product-02 .product .content .summary-content{
+    text-transform: unset;  
+    height: auto; 
+    position: relative;  
+    font-family: 'Roboto', sans-serif;
+    color: #8b8b8b; 
+    margin-bottom: 2em; 
+}
+.box-product-02 .product .content .price{
+    position: relative;  
+    padding: 0; 
+    margin-bottom: 2em;  
+}
+.box-product-02 .product .content .price p{
+    margin-bottom: 0; 
+    height: auto;  
+    text-transform: inherit;  
+    font-size: 1.5em;
+    margin-bottom: .5em; 
+}
+.box-product-02 .product .content .price span{
+    position: relative;  
+    font-size: 1em;
+}
+.box-product-02 .product .content .price span.old{
+    text-decoration: line-through; 
+    color: #cacaca; 
+}
+.box-product-02 .product .content .price span.new{
+    background: transparent;  
+    padding: 0;  
+    color: #7e7e7e; 
+}
+.box-product-02 .product .content .price button span{
+    font-size: .9em;  
+}

@@ -1,0 +1,88 @@
+*{
+    margin: 0 ;
+    padding: 0;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background: #f6f6f6;
+}
+.login-form{
+    margin: 4em auto;
+    max-width: 300px;
+    border: 1px solid #fcfcfc;
+    padding: 2em 3em 1em 3em ;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 0 2px #808080;
+}
+.login-form h2{
+    margin-bottom: 1em;
+    font-weight: 500;
+}
+.login-form img{
+    width: 200px;
+    margin-bottom: 1em;
+}
+.login-form .form-group{
+    text-align: left;
+    margin-bottom: 2em;
+}
+.login-form .form-group p{
+    font-size: .9em;
+    margin-bottom: .5em;
+    text-align: left;
+}
+.login-form .form-group input{
+    width: calc(100% - 2em);
+    padding: .4em .8em;
+    border: 0 ;
+    border-bottom: 1.5px solid #494949;
+    transition: .2s ;
+}
+.login-form .form-group .forgot-password{
+    text-align: right;
+}
+.login-form .form-group .forgot-password a{
+    text-decoration: none;
+    color: #2196F3;
+}
+.login-form .form-group:last-child{
+    margin-bottom: 1em;
+}
+.login-form .form-group input:focus{
+    border-bottom: 1.5px solid #3dc684;
+}
+.login-form .login-footer{
+    text-align: left;
+}
+.login-form button{
+    margin-bottom: 1em;
+    padding: .8em;
+    background: #37b466;
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+    transition: .2s;
+}
+.login-form button:hover{
+    box-shadow: 0 0 2px #37b466 ;
+}
+.login-form .login-footer a{
+    color: #2196F3;
+    font-size: .9em;
+    text-decoration: none;
+
+}
+
+.signUp-form{
+    max-width: 600px;
+}
+.signUp-form .form-group{
+    width: calc(50% - 1em);
+}
+.signUp-form .login{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
