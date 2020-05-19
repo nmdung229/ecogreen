@@ -5,6 +5,7 @@
     </div>
 @endsection
 @section('content')
+
     <div class="banner">
         <div class="container">
             <div class="content ">
@@ -98,4 +99,5 @@
             </div>
         </div>
     </div>
+
 @endsection

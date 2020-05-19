@@ -103,7 +103,7 @@ class ShopController extends Controller
 //        dd('success');
 
         return view('shop.product.product-by-category',[
-            'title' => $this_category->name,
+            'this_category' => $this_category,
             'products' => $products,
             'categories' => $categories,
             'quantityPerCategory' => $quantityPerCategory,

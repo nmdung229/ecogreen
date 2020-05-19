@@ -18,7 +18,7 @@ Route::get('/', [ 'as' => 'shop.home', 'uses' => 'ShopController@index']);
 Route::get('/cart', [ 'as' => 'shop.cart', 'uses' => 'CartController@index']);
 Route::get('/cart/add',['as' => 'cart.add', 'uses' => 'CartController@addProduct']);
 Route::get('/cart/delete',['as' => 'cart.delete', 'uses' => 'CartController@deleteProduct']);
-
+Route::get('/cart/getData',['as' => 'cart.getData', 'uses' => 'CartController@getDatafromSession']);
 
 Route::get('product', [ 'as' => 'shop.product', 'uses' => 'ShopController@productIndex']);
 

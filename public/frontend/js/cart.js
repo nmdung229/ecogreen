@@ -15,9 +15,6 @@ function addCart() {
             beforeSend: function () {
             },
             success: function (res) {
-                // console.log(res);
-
-                // addCartHtml(res);
                 $('.cart-count').text(Object.keys(res).length);
                 addListCartHtml(res);
             },
@@ -74,28 +71,33 @@ function showCartBox(){
 	$('.cart-box').css({
 		'display': 'block'
 	});
-    // $.ajax({
-    //     url: "/cart/getItemtoJson",
-    //     type: "GET",
-    //     dataType: "json",
-    //     data: {
-    //     },
-    //     beforeSend: function () {
-    //     },
-    //     success: function (res) {
-    //         console.log('1234');
-    //         console.log(res);
-    //
-    //         // addCartHtml(res);
-    //     },
-    //     error: function () {
-    //     },
-    //     complete: function () {
-    //     }
-    // });
 
 	removeCartBox();
 }
+
+function showCartIndex() {
+
+    $.ajax({
+        url: "/cart/getData",
+        type: "GET",
+        dataType: "json",
+        data: {
+        },
+        beforeSend: function () {
+        },
+        success: function (res) {
+
+            $('.cart-count').text(Object.keys(res).length);
+            addListCartHtml(res);
+            // showCartBox();
+        },
+        error: function () {
+        },
+        complete: function () {
+        }
+    });
+}
+
 function hiddenCartBox(){
 	$(document).mouseup(function(e)
 	{
@@ -143,19 +145,28 @@ function changeQuantity(){
 	$('.quantity .plus').click(function(){
 		let id  = $(this).attr('data-id');
 		let result = cart.find( x => x.id == id);
-		result.quantity++;
+		if( result != undefined){
+            result.quantity++;
+        }
+
 		let quantity = eval($(this).siblings('input').val());
 		quantity = quantity + 1;
 		$(this).siblings('input').val(quantity);
 	})
 	$('.quantity .minus').click(function(){
 		let id  = $(this).attr('data-id');
+
 		let result = cart.find( x => x.id == id);
-		result.quantity--;
-		if( result.quantity < 0 ) result.quantity = 0 ;
+        if( result != undefined){
+            result.quantity--;
+            if( result.quantity < 0 ) result.quantity = 0 ;
+        }
+
 		let quantity = eval($(this).siblings('input').val());
 		quantity = quantity - 1;
 		if( quantity < 0  ) quantity = 0 ;
 		$(this).siblings('input').val(quantity);
 	})
 }
+changeQuantity();
+showCartIndex();

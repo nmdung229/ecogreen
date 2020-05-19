@@ -146,7 +146,7 @@
     /*color: #457c65;*/
 }
 .category ul li.active a span, .category ul li:hover a span{
-     color: #457c65;
+    color: #457c65;
 }
 .list-product .btn-direct{
     position: absolute;
@@ -168,18 +168,22 @@
     opacity: 1;
 }
 .pagination li{
-    width: 1.6em;
     text-align: center;
-    border: 1px solid #ddd;
-    margin-right: 4px;
     transition: .2s;
+
+}
+.page-item.active .page-link{
+    background-color: #79cba8 ;
+    border-color: #79cba8;
 }
 .pagination li.active, .pagination li:hover{
     color: #fff;
     background: #79cba8;
-    border: 1px solid #79cba8;
 }
-
+.page-link{
+    color: #79cba8;
+    padding: .3rem .8rem
+}
 .box-sale{
     position: relative;
     padding: 5em;

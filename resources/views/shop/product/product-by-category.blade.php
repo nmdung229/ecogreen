@@ -2,7 +2,7 @@
 @section('background')
 
     <div class="background">
-        <img src="https://images.pexels.com/photos/132037/pexels-photo-132037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940d" alt="" class="img-fluid">
+        <img src="{{ asset($this_category->image) }}" alt="" class="img-fluid">
     </div>
 
 @endsection
@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="title">
-                        <h2> {{ $title }} </h2>
+                        <h2> {{ $this_category->name   }} </h2>
                         <div>
                             <select name="#" id="">
                                 <option value="0"> Sắp xếp theo </option>

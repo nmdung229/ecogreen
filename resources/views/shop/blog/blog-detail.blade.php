@@ -36,8 +36,8 @@
         </div>
 
 
-        <div class="container" style="position: relative; background: #fff!important">
-                {!! $data->content !!}
-            </div>
+{{--        <div class="container" style="position: relative; background: #fff!important">--}}
+{{--                {!! $data->content !!}--}}
+{{--            </div>--}}
     </div>
 @endsection

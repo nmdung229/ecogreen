@@ -35,6 +35,21 @@ class CartController extends Controller
         ]);
     }
 
+    public function getDatafromSession()
+    {
+        $orders = session('order');
+        $cart = [];
+        foreach($orders as $key => $item) {
+
+            $product = Product::findorFail($key);
+            $product->image = asset($product->image);
+//            dd($product);
+            $cart[$key]['product'] = $product;
+            $cart[$key]['quantity'] = $item['quantity'];
+        }
+//        dd($cart);
+        return json_encode($cart);
+    }
 
 
     public function addProduct()
@@ -96,8 +111,5 @@ class CartController extends Controller
         $order->customerID = $user->id;
         $order->status = "Đang xử lý";
         $order->save();
-
-
-
     }
 }
