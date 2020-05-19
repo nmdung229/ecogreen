@@ -49,6 +49,40 @@ function removeItemfromCart (id) {
                // dữ liệu trả về là một object nên để gọi đến status chúng ta sẽ gọi như bên dưới
                 if (response.status != 'undefined' && response.status == true) {
                     // xóa dòng vừa được click delete
+                    var quantity = $('.cart-count').html();
+                    quantity--;
+                    $('.cart-count').text(quantity);
+                    $('.product-'+id).remove(); // class .item- ở trong class của thẻ td đã khai báo trong file index
+
+                }
+            },
+            error: function (e) { // lỗi nếu có
+                console.log(e.message);
+            }
+        });
+    }
+}
+
+function removeItemfromFlexCart (id) {
+
+    var result = confirm("Bạn có chắc chắn muốn bỏ sản phẩm khỏi giỏ hàng?");
+    if (result) { // neu nhấn == ok , sẽ send request ajax, dc r.
+        $.ajax({
+            url: "/cart/delete", // base_url được khai báo ở đầu page == http://webshop.local
+            type: 'GET',
+            // data: {}, // dữ liệu truyền sang nếu có
+            data: { id: id }, // dữ liệu truyền sang nếu có
+            dataType: "json", // kiểu dữ liệu trả về
+            success: function (response) { // success : kết quả trả về sau khi gửi request ajax
+
+
+                // console.log(response);
+                // dữ liệu trả về là một object nên để gọi đến status chúng ta sẽ gọi như bên dưới
+                if (response.status != 'undefined' && response.status == true) {
+                    // xóa dòng vừa được click delete
+                    var quantity = $('.cart-count').html();
+                    quantity--;
+                    $('.cart-count').text(quantity);
                     $('.product-'+id).remove(); // class .item- ở trong class của thẻ td đã khai báo trong file index
                 }
             },
@@ -119,7 +153,7 @@ function addListCartHtml(cart){
 	changeQuantity();
 }
 function addCartHtml(obj){
-	let row = `<div class="product">
+	let row = `<div class="product product-${obj.product.id}">
 					<div class="img">
 						<img src="${obj.product.image}" alt="">
 					</div>
@@ -136,7 +170,7 @@ function addCartHtml(obj){
 							</div>
 						</div>
 					</div>
-					<button class="delete"><i class="fas fa-times"></i></button>
+					<a href="javascript:void(0)" onclick="removeItemfromFlexCart(${obj.product.id})"><button class="delete"><i class="fas fa-times"></i></button></a>
 				</div>`;
 	$('.product-in-cart').append(row);
 }
