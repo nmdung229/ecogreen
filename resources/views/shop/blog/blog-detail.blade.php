@@ -32,6 +32,9 @@
         <div class="blog-content" style="position: relative; background: #fff!important">
             <div class="container" >
                 {!! $data->content !!}
+                <div class="author" style="padding: 20px 0;">
+                    <p><b><i>Bài viết được thực hiện bởi <?php echo \App\User::findorFail($data->user_id)->name; ?></i></b></p>
+                </div>
             </div>
         </div>
 
