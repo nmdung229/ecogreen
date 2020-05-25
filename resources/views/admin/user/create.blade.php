@@ -37,6 +37,10 @@
                                 <input type="text" class="form-control" id="email" name="email" placeholder="Nhập Email">
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Địa chỉ</label>
+                                <input type="text" class="form-control" id="email" name="address" placeholder="Nhập địa chỉ">
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Mật khẩu</label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Nhập password">
                             </div>

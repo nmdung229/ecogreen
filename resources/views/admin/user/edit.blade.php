@@ -38,6 +38,10 @@
                                 <input value="{{ $user->email }}" type="text" class="form-control" id="email" name="email" placeholder="Nhập Email">
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Địa chỉ</label>
+                                <input value="{{ $user->address }}" type="text" class="form-control" id="address" name="address" placeholder="Nhập Địa chỉ">
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1" style="color: #9c3328">** Mật khẩu mới</label>
                                 <input type="password" class="form-control" id="new_password" name="new_password" placeholder="Nhập mật khẩu mới">
                             </div>

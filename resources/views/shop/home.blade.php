@@ -68,11 +68,11 @@
                         <p class="price"> 100.000Đ</p>
                         <p class="des"> An toàn, sạch sẽ, thân thiện với môi trường và có thể tái sử dụng tối đa 100 lần.</p>
                         <p class="d-flex count-time">
-                            <span class="day">02  </span>
+                            <span class="day">01</span>
                             <span> : </span>
-                            <span class="hour"> 22 </span>
+                            <span class="hour"> 02 </span>
                             <span> : </span>
-                            <span class="minutes"> 02</span>
+                            <span class="minutes"> 00</span>
                             <span> : </span>
                             <span class="second"> 00 </span>
                         </p>
@@ -191,7 +191,7 @@
                 <div class="row m-0">
                     <div class="col-md-5">
                         <div class="img">
-                            <img src="https://vietcetera.com/wp-content/uploads/2020/01/song-xanh-3.jpg" alt="" class="img-fluid">
+                            <img src="{{ asset($feature_blog[0]->thumbnail) }}" alt="" class="img-fluid" style="min-height: 342.4px">
                         </div>
                     </div>
                     <div class="col-md-7">

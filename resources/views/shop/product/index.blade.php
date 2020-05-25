@@ -226,6 +226,6 @@
     </div>
 
     <script>
-
+        
     </script>
 @endsection

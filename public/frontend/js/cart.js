@@ -32,6 +32,7 @@ function addCart() {
 addCart();
 hiddenCartBox();
 
+
 function removeItemfromCart (id) {
 
     var result = confirm("Bạn có chắc chắn muốn bỏ sản phẩm khỏi giỏ hàng?");

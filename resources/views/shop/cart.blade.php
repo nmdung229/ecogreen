@@ -50,8 +50,7 @@
                                 <a href="javascript:void(0)" onclick="removeItemfromCart({{ $item['product']->id }})" ><button class="delete"><i class="fas fa-times"></i></button></a>
                             </div>
                         @endforeach
-
-
+                        <?php session_start();  $_SESSION["total"] = $total; ?>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -68,7 +67,7 @@
                             <span> Tổng số tiền: </span>
                             <span class="money"><?php echo number_format($total+$vat,0,",",".") . 'Đ'  ?></span>
                         </p>
-                        <a href="#"><button>Tiến hành đặt hàng</button></a>
+                        <a href="{{ route('cart.checkOut') }}"><button>Tiến hành đặt hàng</button></a>
                     </div>
                 </div>
             </div>

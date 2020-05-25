@@ -198,6 +198,7 @@ class ShopController extends Controller
         $user->email = $request->input('email'); // email
         $user->password = Hash::make($request->input('password')); // mật khẩu
         $user->phone = $request->input('phone');
+        $user->address = $request->input('address');
         $user->role_id = 2; // phần quyền
         if ($request->hasFile('avatar')) {
             // get file
