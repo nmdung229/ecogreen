@@ -23,6 +23,10 @@
                                 <td>{{ $user->email }}</td>
                             </tr>
                             <tr>
+                                <td><b>Địa chỉ :</b></td>
+                                <td>{{ $user->address }}</td>
+                            </tr>
+                            <tr>
                                 <td><b>Số điện thoại :</b></td>
                                 <td>{{ ($user->phone != null) ? $user->phone : 'Không có' }}</td>
                             </tr>

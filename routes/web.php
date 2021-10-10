@@ -19,6 +19,7 @@ Route::get('/cart', [ 'as' => 'shop.cart', 'uses' => 'CartController@index']);
 Route::get('/cart/add',['as' => 'cart.add', 'uses' => 'CartController@addProduct']);
 Route::get('/cart/delete',['as' => 'cart.delete', 'uses' => 'CartController@deleteProduct']);
 Route::get('/cart/getData',['as' => 'cart.getData', 'uses' => 'CartController@getDatafromSession']);
+Route::get('/cart/checkout',['as' => 'cart.checkOut', 'uses' => 'CartController@checkOut']);
 
 Route::get('product', [ 'as' => 'shop.product', 'uses' => 'ShopController@productIndex']);
 
@@ -59,6 +60,8 @@ Route::group([ 'middleware' => '\App\Http\Middleware\checkAdminLogin' ,'prefix' 
     Route::resource('product', 'ProductController');
     // QL banner
     Route::resource('banner', 'BannerController');
+    // QL Order
+    Route::resource('order', 'OrderController');
     // QL brand
     Route::resource('brand', 'BrandController');
     // QL vendor

@@ -1,5 +1,5 @@
 var cart = [];
-// console.log('1234');
+
 function addCart() {
 	$('.btn-add-card').click(function(){
 		let obj = new Object();
@@ -31,6 +31,7 @@ function addCart() {
 }
 addCart();
 hiddenCartBox();
+
 
 function removeItemfromCart (id) {
 

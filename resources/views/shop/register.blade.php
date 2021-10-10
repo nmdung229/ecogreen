@@ -56,6 +56,10 @@
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
+                <input type="text" name="address" class="form-control" placeholder="Address">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
                 <input type="text" name="phone" class="form-control" placeholder="Điện thoại">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>

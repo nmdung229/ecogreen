@@ -61,7 +61,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password')); // mật khẩu
         $user->phone = $request->input('phone');
         $user->role_id = $request->input('role_id'); // phần quyền
-
+        $user->address = $request->input('address');
         if ($request->hasFile('avatar')) {
             // get file
             $file = $request->file('avatar');
@@ -139,6 +139,7 @@ class UserController extends Controller
         //luu vào csdl
         $user->name = $request->input('name'); // họ tên
         $user->email = $request->input('email'); // email
+        $user->address = $request->input('address');
         $user->role_id = $request->input('role_id'); // phần quyền
         $user->phone = $request->input('phone');
         if ($request->input('new_password')) {

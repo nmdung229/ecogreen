@@ -69,7 +69,6 @@ class ShopController extends Controller
     {
         $products = Product::where(['is_active' => 1, 'is_hot' => 1])
             ->orderBy('id','desc')->paginate(6);
-
 //        dd($products);
 //        $products = Product::all()->paginate(4);
         $categories = Category::where('is_active', 1)->get();
@@ -198,6 +197,7 @@ class ShopController extends Controller
         $user->email = $request->input('email'); // email
         $user->password = Hash::make($request->input('password')); // mật khẩu
         $user->phone = $request->input('phone');
+        $user->address = $request->input('address');
         $user->role_id = 2; // phần quyền
         if ($request->hasFile('avatar')) {
             // get file

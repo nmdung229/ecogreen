@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Banner;
+use App\Category;
 use App\Order;
 use App\OrderDetail;
+use App\Post;
 use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,9 +17,15 @@ class CartController extends Controller
     //
     public function index()
     {
+        if(!session()->has('order'))
+        {
+            return view('shop.noCart');
+        }
+
+
+
         $orders = session('order');
-//        dd($orders);
-//        dd($orders);
+
         $result = [];
         foreach($orders as $key => $item) {
 
@@ -26,9 +36,7 @@ class CartController extends Controller
         }
 
 
-//        die('1234');
-//        dd($result);
-//        dd($orders);
+
 
         return view('shop.cart', [
             'result' => $result
@@ -77,9 +85,7 @@ class CartController extends Controller
             $cart[$key]['quantity'] = $item['quantity'];
         }
 
-//        die('1234');
-//        dd($result);
-//        dd($orders);
+
         return json_encode($cart);
 
 //        return response()->json([
@@ -103,13 +109,110 @@ class CartController extends Controller
         ], 200);
     }
 
-    public function createOrder($data)
+    public function createOrder()
     {
-        $order = new Order();
-        $orderdetail = new OrderDetail();
-        $user = Auth::user();
-        $order->customerID = $user->id;
-        $order->status = "Đang xử lý";
-        $order->save();
+//        $order = new Order();
+//        $orderdetail = new OrderDetail();
+//        $user = Auth::user();
+//        $order->customerID = $user->id;
+//        $order->status = "Đang xử lý";
+//        $order->save();
     }
+
+    public function checkOut()
+    {
+
+        session_start();
+        $total = $_SESSION["total"];
+        if(!session()->has('order') || !Auth::check()) {
+            redirect('/');
+        }
+
+        $cart = session('order');
+//        dd($cart);
+        $user = Auth::user();
+//        dd($user);
+        $order = new Order();
+        $order->fullname = $user->name;
+        $order->phone = $user->phone;
+        $order->email = $user->email;
+        $order->address = $user->address;
+        $order->total = $total;
+        $order->member_id = $user->id;
+        $order->order_status_id = 1; // 1 = mới
+        if($order->save()) {
+
+            $order->code = 'DH-'.$order->id.'-'.date('d').date('m').date('Y');
+            $order->save();
+            foreach($cart as $key => $item) {
+
+                $product = Product::findorFail($key);
+                $_detail = new OrderDetail();
+                $_detail->name = $product->name;
+                $_detail->image = $product->image;
+                $_detail->sku = $product->sku;
+                $_detail->user_id = $product->user_id;
+                $_detail->order_id = $order->id;
+                $_detail->product_id = $product->id;
+                $_detail->qty = $item['quantity'];
+                $_detail->price = $product->price;
+//                dd($_detail);
+                $_detail->save();
+//                dd("die1234");
+            }
+        }
+
+
+        session()->forget('order');
+
+
+        $posts = Post::where('is_active',1)->get();
+//        dd($posts);
+        $products = Product::where(['is_active' => 1, 'is_hot' => 1])
+            ->limit(6)->orderBy('id', 'desc')->get();
+//        dd($products);
+//         Lấy dữ liệu danh mục sản phẩm
+        $categories = Category::where('is_active', 1)->get();
+        // Lấy dữ liệu danh mục banner
+        $banners = Banner::where('is_active',1)->get();
+
+        $feature_blog = Post::where(['is_active' => 1, 'is_hot' => 1])->limit(1)->orderBy('id', 'desc')->get();
+//        die("success");
+
+        $user = User::findorFail($feature_blog[0]->user_id);
+
+        $authorname = $user->name;
+//        die("success");
+//        $list = []; // chứa danh sách sản phẩm theo thể loại
+//        foreach($categories as $key => $category) {
+//            if($category->parent_id == 0) { // kiểm tra xem có phải thư mục cha không?
+//                $ids = [$category->id];
+//
+//                foreach($categories as $child) {
+//                    if($child->parent_id == $category->id) {
+//                        $ids[] = $child->id; // thêm ID của phần tử con vào mảng
+//                    }
+//                }
+//                $list[$key]['category'] = $category;
+//                $list[$key]['products'] = $category->products()->where(['is_active' => 1, 'is_hot' => 0])
+//                                                                ->whereIn('category_id', $ids)
+//                                                                ->limit(10)->orderBy('id','desc')
+//                                                                ->get(); // it's a query !!
+//            }
+//        }
+
+        return view('shop.home', [
+            'title' => 'Home',
+            'posts' => $posts,
+            'products' => $products,
+            'categories' => $categories,
+            'banners' => $banners,
+            'feature_blog' => $feature_blog,
+            'authorname' => $authorname,
+//            'list' => $list
+        ]);
+
+    }
+
+
 }

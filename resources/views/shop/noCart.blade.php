@@ -25,49 +25,24 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="product-buy">
-                        @foreach($result as $key => $item)
-                            <?php $total += $item['product']->sale*$item['quantity'];  ?>
-                            <div class="product product-{{ $item['product']->id }}" data-id = "{{ $item['product']->id }}">
-                                <div class="img">
-                                    <img src="{{ asset($item['product']->image) }}" alt="{{ $item['product']->slug }}">
-                                </div>
-                                <div class="content">
-                                    <div class="info">
-                                        <p class="product-name">  {{ $item['product']->name }} </p>
-                                        <p class="price"> <span class="old">{{number_format($item['product']->price,0,",",".") }}Đ </span> &nbsp {{number_format($item['product']->sale,0,",",".") }}Đ</p>
-                                        <p class="text-uppercase"> Số lượng</p>
-                                        <div class="form-group d-flex quantity">
 
-                                            <button class="minus"><i class="fas fa-minus"></i> </button>
-                                            <input type="number" name="quantity" value="{{ $item['quantity'] }}">
-                                            <button class="plus"> <i class="fas fa-plus"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="money-product">
-                                        <p> Thành tiền: <span class="money">{{number_format($item['product']->sale*$item['quantity'],0,",",".") }}Đ</span></p>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" onclick="removeItemfromCart({{ $item['product']->id }})" ><button class="delete"><i class="fas fa-times"></i></button></a>
-                            </div>
-                        @endforeach
-                        <?php session_start();  $_SESSION["total"] = $total; ?>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="pay">
                         <p class="d-flex justify-content-between">
                             <span> Tổng số tiền: </span>
-                            <span><?php echo number_format($total,0,",",".") . 'Đ'  ?></span>
+                            <span>0Đ</span>
                         </p>
                         <p class="d-flex justify-content-between">
                             <span> VAT: </span>
-                            <span><?php echo number_format($vat,0,",",".") . 'Đ'  ?></span>
+                            <span>0Đ</span>
                         </p>
                         <p class="d-flex justify-content-between sum-money">
                             <span> Tổng số tiền: </span>
-                            <span class="money"><?php echo number_format($total+$vat,0,",",".") . 'Đ'  ?></span>
+                            <span class="money">0Đ</span>
                         </p>
-                        <a href="{{ route('cart.checkOut') }}"><button>Tiến hành đặt hàng</button></a>
+                        <a href="#"><button>Tiến hành đặt hàng</button></a>
                     </div>
                 </div>
             </div>

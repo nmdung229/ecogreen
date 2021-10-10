@@ -24,6 +24,10 @@
                     <div class="box-image">
                         <div class="img-display">
                             <img src="{{ asset($product->image) }}" alt="">
+                            @if($product->stock == 0)
+                                <span class="soldOut"> SOLD OUT </span>
+                            @endif
+
                         </div>
                         <div class="product-images">
                             <img src="https://images.pexels.com/photos/2878713/pexels-photo-2878713.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
@@ -40,12 +44,19 @@
                         <p class="product-code"> Mã: {{ (isset($product->sku)) ? "$product->sku" : "" }}</p>
                         <p class="summary-desciption">{{ $product->summary }}</p>
                         <p class="price">{{  number_format($product->sale,0,",",".") }}Đ</p>
+                        @if($product->stock > 0)
                         <div class="form-group d-flex quantity">
                             <button class="minus"><i class="fas fa-minus"></i> </button>
                             <input type="number" name="quantity" value="1">
                             <button class="plus"> <i class="fas fa-plus"></i></button>
                         </div>
-                        <button class="btn-custom-01 btn-add-card" data-id="{{ $product->id }}"> <span>Thêm vào giỏ hàng</span>  </button>
+                        @endif
+                        @if($product->stock == 0 )
+                            <button class="btn-custom-01 btn-add-card" data-id="{{ $product->id }}" disabled> <span>PRE-ORDER</span>  </button>
+                        @else
+                            <button class="btn-custom-01 btn-add-card" data-id="{{ $product->id }}"> <span>Thêm vào giỏ hàng</span>  </button>
+                        @endif
+
                     </div>
                 </div>
             </div>

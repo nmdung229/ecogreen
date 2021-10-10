@@ -76,6 +76,13 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.order.index') }}">
+                    <i class="fa fa-th"></i> <span>QL Order</span>
+                    <span class="pull-right-container">
+            </span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.brand.index') }}">
                     <i class="fa fa-pie-chart"></i> <span>QL Brand</span>
                     <span class="pull-right-container">

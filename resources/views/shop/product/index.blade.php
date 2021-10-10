@@ -55,18 +55,48 @@
                     </div>
                     <div class="list-product">
                         @foreach($products as $item)
-                            <div class="product" id="product-{{ $item->id }}">
-                                <div class="img">
-                                    <img src="{{ asset($item->image) }}" alt="" class="img-fluid">
-                                    <span class="price"> {{ number_format($item->sale,0,",",".") }}Đ </span>
-                                    <span class="new"> NEW </span>
+                            @if($item->stock == 0)
+                                <div class="product" id="product-{{ $item->id }}">
+                                    <div class="img">
+                                        <img src="{{ asset($item->image) }}" alt="" class="img-fluid">
+                                        <span class="price"> {{ number_format($item->sale,0,",",".") }}Đ </span>
+
+                                        <span class="soldOut"> SOLD OUT </span>
+
+
+
+
+
+                                    </div>
+                                    <p class="name">{{ $item->name }}</p>
+                                    <div class="tools">
+                                        <button class="btn-custom-01 btn-add-card" data-id = "{{ $item->id }}" disabled> <span>Mua ngay</span>  </button>
+                                        <a href=" {{ route('shop.product.show', [ 'id' => $item->id]) }}"><button class="btn-custom-02"> <span> Xem chi tiết </span> </button></a>
+                                    </div>
                                 </div>
-                                <p class="name">{{ $item->name }}</p>
-                                <div class="tools">
-                                    <button class="btn-custom-01 btn-add-card" data-id = "{{ $item->id }}"> <span>Mua ngay</span>  </button>
-                                    <a href=" {{ route('shop.product.show', [ 'id' => $item->id]) }}"><button class="btn-custom-02"> <span> Xem chi tiết </span> </button></a>
+                            @else
+                                <div class="product" id="product-{{ $item->id }}">
+                                    <div class="img">
+                                        <img src="{{ asset($item->image) }}" alt="" class="img-fluid">
+                                        <span class="price"> {{ number_format($item->sale,0,",",".") }}Đ </span>
+
+
+
+                                        <span class="new"> NEW </span>
+
+
+
+                                    </div>
+                                    <p class="name">{{ $item->name }}</p>
+                                    <div class="tools">
+                                        <button class="btn-custom-01 btn-add-card" data-id = "{{ $item->id }}"> <span>Mua ngay</span>  </button>
+                                        <a href=" {{ route('shop.product.show', [ 'id' => $item->id]) }}"><button class="btn-custom-02"> <span> Xem chi tiết </span> </button></a>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
+
+
+
                         @endforeach
 
 {{--                        <div class="product">--}}

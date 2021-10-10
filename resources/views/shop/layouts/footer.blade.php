@@ -39,13 +39,13 @@
             <h3> Liên hệ </h3>
             <ul>
                 <li> <i class="far fa-envelope"></i> contact.ecogreen@gmail.com</li>
-                <li> <i class="fab fa-facebook-f"></i>facebook.com/lucnguyenxk</li>
-                <li> <i class="fas fa-phone-alt"></i>+84 354830236</li>
+                <li> <i class="fab fa-facebook-f"></i>facebook.com/ecogreen</li>
+                <li> <i class="fas fa-phone-alt"></i>+84 354830234</li>
             </ul>
         </div>
     </div>
 
 </div>
 <div class="footer-bottom">
-    <p> Copy right <strong> Group 8 </strong>  April, 2020</p>
+    <p> Copyright <strong> NMD </strong>  April, 2020</p>
 </div>
